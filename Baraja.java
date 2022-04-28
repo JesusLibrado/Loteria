@@ -6,15 +6,13 @@ class Baraja {
 
     public String[] nombresDeCartas;
     
-    public Baraja(String[] arrayOfCartas) {
-        // receive list of cards as input
-        // create another constructor that receives an array of strings
-        this.nombresDeCartas = arrayOfCartas;
-
-        // maybe set in another step?
+    public Baraja(String[] nombresDeCartas) {
+        this.nombresDeCartas = nombresDeCartas;
         index = 0;
+        setCartas();
+    }
 
-        // write a method for this. NOT in the constructor
+    private void setCartas() {
         cartas = new Carta[this.nombresDeCartas.length];
         for(int i = 0; i<this.nombresDeCartas.length; i++){
             cartas[i] = new Carta(this.nombresDeCartas[i], i);
@@ -25,7 +23,7 @@ class Baraja {
         return cartas;
     }
 
-    public Carta getNext() {
+    public Carta getCarta() {
         return cartas[index++];
     }
 

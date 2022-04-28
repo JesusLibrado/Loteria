@@ -6,7 +6,7 @@ class Main{
         Reader cartasReader = new Reader(cartasInputFile);
         Baraja baraja = new Baraja(cartasReader.asArray());
         for(int turno = 0; turno < baraja.size(); turno++){
-            Carta cartaEnTurno = baraja.getNext();
+            Carta cartaEnTurno = baraja.getCarta();
             baraja.print(cartaEnTurno);
         }
     }
