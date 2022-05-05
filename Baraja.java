@@ -10,6 +10,11 @@ class Baraja {
         this.nombresDeCartas = nombresDeCartas;
         index = 0;
         setCartas();
+        shuffleCartas();
+    }
+
+    private void shuffleCartas() {
+        
     }
 
     private void setCartas() {
