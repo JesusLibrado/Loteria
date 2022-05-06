@@ -14,7 +14,14 @@ class Baraja {
     }
 
     private void shuffleCartas() {
-        
+        for(int i=0; i<cartas.length-2; i++){
+            int minValue = i;
+            int maxValue = cartas.length-1;
+            int random = (int)Math.floor(Math.random()*(maxValue-minValue+1)+minValue);
+            Carta temp = cartas[i];
+            cartas[i] = cartas[random];
+            cartas[random] = temp;
+        };
     }
 
     private void setCartas() {
