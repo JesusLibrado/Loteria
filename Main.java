@@ -29,8 +29,8 @@ class Main{
             // get Carta from Baraja
             Carta cartaEnTurno = baraja.getCarta();
 
-            // should move this method to the Carta class instead TO DO
-            baraja.print(cartaEnTurno);
+            // "cantar la Carta", print the Carta
+            cartaEnTurno.cantar();
         }
     }
 }

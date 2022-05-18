@@ -54,8 +54,4 @@ class Baraja {
     public int size() {
         return cartas.length;
     }
-
-    public void print(Carta carta){
-        System.out.printf("[%d]: %s\n", carta.getNumero(), carta.getNombre());
-    }
 }

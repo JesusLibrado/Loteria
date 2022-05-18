@@ -25,4 +25,8 @@ class Carta {
         return this.numero;
     }
 
+    public void cantar() {
+        System.out.printf("[%d]: %s\n", this.numero, this.nombre);
+    }
+
 }
