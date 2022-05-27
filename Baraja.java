@@ -1,20 +1,48 @@
+/*
+// Baraja Class
+//
+// Represents a deck of Cartas with the input from the game (list of Cartas)
+//
+// Receives a list of strings 
+//
+*/
+
 class Baraja {
 
+    // store the current index of the Carta from the deck
     private int index;
     
+    // actual Cartas
     private Carta[] cartas;
 
+    // to keep locally the names of the Cartas
     public String[] nombresDeCartas;
     
-    public Baraja(String[] arrayOfCartas) {
-        // receive list of cards as input
-        // create another constructor that receives an array of strings
-        this.nombresDeCartas = arrayOfCartas;
-
-        // maybe set in another step?
+    // receives a list of Carta names
+    public Baraja(String[] nombresDeCartas) {
+        this.nombresDeCartas = nombresDeCartas;
         index = 0;
+        // create Cartas using the names received
+        setCartas();
+        
+        // shuffle them Cartas
+        shuffleCartas();
+    }
 
-        // write a method for this. NOT in the constructor
+    // Fisher-Yates sshuffling algorithm implementation
+    private void shuffleCartas() {
+        for(int i=0; i<cartas.length-2; i++){
+            int minValue = i;
+            int maxValue = cartas.length-1;
+            int random = (int)Math.floor(Math.random()*(maxValue-minValue+1)+minValue);
+            Carta temp = cartas[i];
+            cartas[i] = cartas[random];
+            cartas[random] = temp;
+        };
+    }
+
+    // create Carta objects
+    private void setCartas() {
         cartas = new Carta[this.nombresDeCartas.length];
         for(int i = 0; i<this.nombresDeCartas.length; i++){
             cartas[i] = new Carta(this.nombresDeCartas[i], i);
@@ -25,7 +53,7 @@ class Baraja {
         return cartas;
     }
 
-    public Carta getNext() {
+    public Carta getCarta() {
         return cartas[index++];
     }
 
@@ -43,9 +71,5 @@ class Baraja {
 
     public int size() {
         return cartas.length;
-    }
-
-    public void print(Carta carta){
-        System.out.printf("[%d]: %s\n", carta.getNumero(), carta.getNombre());
     }
 }

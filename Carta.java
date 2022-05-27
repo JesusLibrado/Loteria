@@ -1,3 +1,13 @@
+/*
+// Carta Class
+//
+// Represents each Carta of the game 
+//
+// Constructor receives a nombre (name) and a numero (ID)
+//
+*/
+
+
 class Carta {
     public String nombre;
     public int numero;
@@ -13,6 +23,10 @@ class Carta {
 
     public int getNumero(){
         return this.numero;
+    }
+
+    public void cantar() {
+        System.out.printf("[%d]: %s\n", this.numero, this.nombre);
     }
 
 }
