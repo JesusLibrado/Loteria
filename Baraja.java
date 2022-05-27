@@ -1,18 +1,35 @@
+/*
+// Baraja Class
+//
+// Represents a deck of Cartas with the input from the game (list of Cartas)
+//
+// Receives a list of strings 
+//
+*/
+
 class Baraja {
 
+    // store the current index of the Carta from the deck
     private int index;
     
+    // actual Cartas
     private Carta[] cartas;
 
+    // to keep locally the names of the Cartas
     public String[] nombresDeCartas;
     
+    // receives a list of Carta names
     public Baraja(String[] nombresDeCartas) {
         this.nombresDeCartas = nombresDeCartas;
         index = 0;
+        // create Cartas using the names received
         setCartas();
+        
+        // shuffle them Cartas
         shuffleCartas();
     }
 
+    // Fisher-Yates sshuffling algorithm implementation
     private void shuffleCartas() {
         for(int i=0; i<cartas.length-2; i++){
             int minValue = i;
@@ -24,6 +41,7 @@ class Baraja {
         };
     }
 
+    // create Carta objects
     private void setCartas() {
         cartas = new Carta[this.nombresDeCartas.length];
         for(int i = 0; i<this.nombresDeCartas.length; i++){
